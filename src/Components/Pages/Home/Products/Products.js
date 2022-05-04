@@ -12,7 +12,7 @@ const Products = () => {
     }, [])
 
     return (
-        <div className=''>
+        <div id='products'>
             <h2 className='text-center m-5'>All Products: {products.length}</h2>
             <div className='row'>
                 {
