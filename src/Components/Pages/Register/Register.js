@@ -10,9 +10,10 @@ const Register = () => {
 
     const handleSubmit = async event => {
         event.preventDefault();
+        const name = nameRef.current.value;
         const email = emailRef.current.value;
         const pass = passRef.current.value;
-        console.log(email, pass)
+        console.log(nameRef.current.value)
     }
     const navigateLogin = event => {
         navigate('/login')
@@ -24,16 +25,16 @@ const Register = () => {
             <Form className='border p-5' onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicName">
                     <Form.Label>Your Name</Form.Label>
-                    <Form.Control ref={nameRef} type="name" placeholder="Enter Name" required />
+                    <Form.Control ref={nameRef} type="name" name="name" placeholder="Enter Name" required />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control ref={emailRef} type="email" placeholder="Enter email" required />
+                    <Form.Control ref={emailRef} type="email" name="email" placeholder="Enter email" required />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control ref={passRef} type="password" placeholder="Password" required />
+                    <Form.Control ref={passRef} name="password" type="password" placeholder="Password" required />
                 </Form.Group>
                 <Button variant="primary w-50 mx-auto d-block mb-2" type="submit">
                     Register
