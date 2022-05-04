@@ -1,6 +1,9 @@
 import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
+import auth from '../../../firebase.init';
+import SocialLogin from './SocialLogin/SocialLogin';
 
 const Login = () => {
 
@@ -8,12 +11,23 @@ const Login = () => {
     const passRef = useRef('');
     const navigate = useNavigate();
 
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
+
+    if (user) {
+        navigate('/home')
+    }
 
     const handleSubmit = async event => {
         event.preventDefault();
         const email = emailRef.current.value;
         const pass = passRef.current.value;
         console.log(email, pass);
+        signInWithEmailAndPassword(email, pass);
     }
     const navigateRegister = event => {
         navigate('/register')
@@ -38,6 +52,7 @@ const Login = () => {
                 </Button>
                 <p> New to Musafir ? <Link to={'/register'} className='text-danger pe-auto text-decoration-none' onClick={navigateRegister}> Please Register</Link></p>
                 {/* <p> Forget Password? <Link to={'/login'} className='text-primary pe-auto text-decoration-none' onClick={resetPassword}> Reset Password</Link></p> */}
+                <SocialLogin />
             </Form>
             {/* {errorElement} */}
 
