@@ -2,16 +2,17 @@ import React from 'react';
 import { useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { FcGoogle } from 'react-icons/fc';
 import { BsGithub } from 'react-icons/bs';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../../firebase.init';
 import Loading from '../../../Shared/Loading/Loading';
 
 const SocialLogin = () => {
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
     const [signInWithGithub, gitUser, gitLoading, gitError] = useSignInWithGithub(auth);
+    const location = useLocation();
 
     const navigate = useNavigate();
-
+    let from = location.state?.from?.pathname || "/";
     let errorMassage;
 
     if (loading || gitLoading) {
@@ -24,7 +25,7 @@ const SocialLogin = () => {
     }
 
     if (user || gitUser) {
-        navigate('/home')
+        navigate(from, { replace: true });
     }
     return (
         <>

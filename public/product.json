@@ -4,14 +4,16 @@
         "img": "https://i.ibb.co/ZNFkNdR/269262428-105892941958862-562220259657470755-n.png",
         "name": "Product",
         "price": "750",
+        "quantity": "10",
         "description": "When it comes to traveling, things are as good as they get. So I brought Bridget, some good jackets.Lite weight, easy to cary",
-        "supplier": "7Shimul  D.Luiz50"
+        "supplier": "Shimul  D.Luiz50"
     },
     {
         "id": 2,
         "img": "https://i.ibb.co/S5cjdPH/269499308-105897265291763-3815415706262446746-n.jpg",
         "name": "Product",
         "price": "750",
+        "quantity": "10",
         "description": "When it comes to traveling, things are as good as they get. So I brought Bridget, some good jackets.Lite weight, easy to cary",
         "supplier": "Shimul  D.Luiz"
     },
@@ -20,6 +22,7 @@
         "img": "https://i.ibb.co/vwTpF8Q/Regatta-vidra-quick-dry-t-shirts.png",
         "name": "Product",
         "price": "750",
+        "quantity": "10",
         "description": "When it comes to traveling, things are as good as they get. So I brought Bridget, some good jackets.Lite weight, easy to cary",
         "supplier": "Shimul  D.Luiz"
     },
@@ -28,6 +31,7 @@
         "img": "https://i.ibb.co/YWQ8vKp/Quechua-6-pocket-cargo-pant.png",
         "name": "Product",
         "price": "750",
+        "quantity": "10",
         "description": "When it comes to traveling, things are as good as they get. So I brought Bridget, some good jackets.Lite weight, easy to cary",
         "supplier": "Shimul  D.Luiz"
     },
@@ -36,6 +40,7 @@
         "img": "https://i.ibb.co/t2JRTGb/277510332-134783955736427-5296049153535480525-n.png",
         "name": "Product",
         "price": "750",
+        "quantity": "10",
         "description": "When it comes to traveling, things are as good as they get. So I brought Bridget, some good jackets.Lite weight, easy to cary",
         "supplier": "Shimul  D.Luiz"
     },
@@ -44,6 +49,7 @@
         "img": "https://i.ibb.co/NLpdWLn/274301413-126061543275335-7779728655781072293-n.png",
         "name": "Product",
         "price": "750",
+        "quantity": "10",
         "description": "When it comes to traveling, things are as good as they get. So I brought Bridget, some good jackets.Lite weight, easy to cary",
         "supplier": "Shimul  D.Luiz"
     },
@@ -52,6 +58,7 @@
         "img": "https://i.ibb.co/X4BZFnY/273410104-122832323598257-3206431683912628330-n.png",
         "name": "Product",
         "price": "750",
+        "quantity": "10",
         "description": "When it comes to traveling, things are as good as they get. So I brought Bridget, some good jackets.Lite weight, easy to cary",
         "supplier": "Shimul  D.Luiz"
     }

@@ -14,7 +14,7 @@ const Register = () => {
 
     const navigate = useNavigate();
 
-    const handleSubmit = async event => {
+    const handleSubmit = event => {
         event.preventDefault();
         const name = event.target.name.value;
         const email = event.target.email.value;
