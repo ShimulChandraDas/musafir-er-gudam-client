@@ -1,11 +1,14 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
 import { RiDeleteBin5Fill } from 'react-icons/ri';
-
+import { GrUpdate } from 'react-icons/gr';
 import useInventory from '../../../hooks/useInventory';
+import { useNavigate } from 'react-router-dom';
 
 const ManageInventory = () => {
+    //const { inventoryId } = useParams();
     const [products, setProducts] = useInventory();
+    const navigate = useNavigate();
     const handleDelete = id => {
         const proceed = window.confirm('Are you Sure?');
         if (proceed) {
@@ -21,16 +24,29 @@ const ManageInventory = () => {
                 })
         }
     }
+    const handleUpdate = id => {
+        console.log(id);
+        const update = window.prompt("Type your Quantity");
+        if (update) {
+            const url = `http://localhost:5000/product/${id}`
+            fetch(url, {
+                method: 'PUT',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(update)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log('update');
+                })
+        }
+        //navigate(`/inventory/${id}`);
+    }
 
     return (
         <div className='container  mx-auto'>
             <h2>Manage my inventory</h2>
-
-            {/* {
-                products.map(product => <div key={products._id}>
-                    <h4>{product.name}</h4>
-                </div>)
-            } */}
 
             <div className='container'>
                 {
@@ -53,6 +69,7 @@ const ManageInventory = () => {
                                 <td>{product.quantity}</td>
                                 <td>{product.supplier}</td>
                                 <td><button onClick={() => handleDelete(product._id)} className='bg-danger text-white rounded '><RiDeleteBin5Fill /></button></td>
+                                <td><button onClick={() => handleUpdate(product._id)} className='bg-danger text-white rounded '><GrUpdate /></button></td>
                             </tr>
 
                         </tbody>
