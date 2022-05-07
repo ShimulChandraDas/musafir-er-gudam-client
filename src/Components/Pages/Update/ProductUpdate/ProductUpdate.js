@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
+import { Button, Form } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 
 const ProductUpdate = () => {
     const { inventoryId } = useParams();
-    const [add, setAdd] = useState({});
+    const [inventory, setInventory] = useState({});
     useEffect(() => {
         const url = `http://localhost:5000/inventory/${inventoryId}`;
         fetch(url)
             .then(res => res.json())
-            .then(data => setAdd(data))
+            .then(data => setInventory(data))
     }, []);
     const handleUpdateQuantity = event => {
         event.preventDefault();
@@ -32,12 +33,26 @@ const ProductUpdate = () => {
     }
 
     return (
-        <div className='text-center'>
-            <h2>Updated Quantity of:{add.name} </h2>
-            <form onSubmit={handleUpdateQuantity}>
-                <input className='mb-3' type="number" placeholder='Add Quantity' name="quantity" id="" /> <br />
-                <input type="submit" value="Update Quantity" />
-            </form>
+        <div className='text-center container w-50 mx-auto'>
+            <h2 className='text-center text-success mt-2'>Updated Quantity of:{inventory.name} </h2>
+            <Form className='border pt-2 ' onSubmit={handleUpdateQuantity}>
+                <Form.Group className="mb-3" controlId="formBasicPInventory">
+                    <Form.Control type="text" name="name" value={inventory.name} readOnly placeholder="Product Name" required />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Control type="number" name="price" value={inventory.price} readOnly />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Control type="number" name="quantity" placeholder="Enter Restock Quantity" required />
+                </Form.Group>
+
+                {/* <input className='mb-3' type="number" placeholder='Add Quantity' name="quantity" id="" /> <br /> */}
+                {/* <input type="submit" value="Update Quantity" /> */}
+
+                <Button variant="primary w-100 mx-auto d-block mb-2" type="submit">
+                    Update Quantity
+                </Button>
+            </Form>
 
         </div>
     );
@@ -48,17 +63,6 @@ export default ProductUpdate;
 
 
 
-
-
-
-
-
-// import React from 'react';
-// import { Button, Form } from 'react-bootstrap';
-// import { useParams } from 'react-router-dom';
-// import useInventoryDetails from '../../../../hooks/useInventoryDetails';
-// import { useAuthState } from "react-firebase-hooks/auth";
-// import auth from '../../../../firebase.init'
 
 
 // const ProductUpdate = () => {

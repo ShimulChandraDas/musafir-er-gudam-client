@@ -5,6 +5,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import Loading from '../../Shared/Loading/Loading';
 import SocialLogin from './SocialLogin/SocialLogin';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
 
@@ -21,7 +23,7 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
     // if (error) {
-    //     return Toast(<p>{error.message}</p>)
+    //     return Toast({error.message})
 
     // }
 
@@ -65,8 +67,9 @@ const Login = () => {
                 <p> New to Musafir ? <Link to={'/register'} className='text-danger pe-auto text-decoration-none' onClick={navigateRegister}> Please Register</Link></p>
                 {/* <p> Forget Password? <Link to={'/login'} className='text-primary pe-auto text-decoration-none' onClick={resetPassword}> Reset Password</Link></p> */}
                 <SocialLogin />
+                <ToastContainer />
             </Form>
-            {/* {errorElement} */}
+
 
         </div>
     );
