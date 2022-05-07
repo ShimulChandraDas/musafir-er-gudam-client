@@ -28,35 +28,35 @@ const ManageInventory = () => {
 
     return (
         <div className='container  mx-auto'>
-            <h2>Manage my inventory</h2>
+            <h2 className='text-center text-success mt-2 mb-2'>Manage my inventory</h2>
 
             <div className='container'>
                 {
-                    products.map(product => <Table key={products._id}>
-                        <thead>
+                    <Table>
+                        <tbody>
                             <tr>
-
                                 <th>Name</th>
                                 <th>Price</th>
                                 <th>Quantity</th>
                                 <th>Supplier</th>
                                 <th>Action</th>
                             </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-
-                                <td>{product.name}</td>
-                                <td>{product.price}</td>
-                                <td>{product.quantity}</td>
-                                <td>{product.supplier}</td>
-                                <td><button onClick={() => handleDelete(product._id)} className='bg-danger text-white rounded '><RiDeleteBin5Fill /></button></td>
-                                <td><Link to={`/inventory/${product._id}`}><button className='bg-danger text-white rounded '><GrUpdate /></button></Link></td>
-                                {/* <td><button onClick={() => handleUpdate(product._id)} className='bg-danger text-white rounded '><GrUpdate /></button></td> */}
-                            </tr>
-
+                            {
+                                products.map(product =>
+                                    <tr key={product._id} >
+                                        <td>{product.name}</td>
+                                        <td>{product.price}</td>
+                                        <td>{product.quantity}</td>
+                                        <td>{product.supplier}</td>
+                                        <td>
+                                            <button onClick={() => handleDelete(product._id)} className='bg-danger text-white rounded '><RiDeleteBin5Fill /></button>
+                                            <Link to={`/inventory/${product._id}`}><button className='bg-danger text-white rounded mx-4'><GrUpdate /></button></Link>
+                                        </td>
+                                    </tr>
+                                )
+                            }
                         </tbody>
-                    </Table>)
+                    </Table>
                 }
             </div>
         </div>
