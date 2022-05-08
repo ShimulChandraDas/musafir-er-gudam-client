@@ -27,14 +27,16 @@ const ManageInventory = () => {
     }
 
     const handleDelivered = id => {
+        console.log(id.quantity);
         const delivered = products?.quantity - 1;
+        console.log(products?.quantity);
         const url = `https://rocky-wildwood-46157.herokuapp.com/product/${id}`;
         fetch(url, {
             method: 'PUT',
             headers: {
                 "content-type": "application/json",
             },
-            body: JSON.stringify({ delivered }),
+            body: JSON.stringify(delivered),
         })
             .then((res) => res.json())
             .then((data) => console.log(data));
@@ -60,6 +62,7 @@ const ManageInventory = () => {
                                 products.map(product =>
                                     <tr key={product._id} >
                                         <td>{product.name}</td>
+
                                         <td>{product.price}</td>
                                         <td>{product.quantity}</td>
                                         <td>{product.supplier}</td>
