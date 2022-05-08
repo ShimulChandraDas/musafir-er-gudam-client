@@ -28,7 +28,7 @@ const ProductUpdate = () => {
             .then(res => res.json())
             .then(data => {
                 console.log('success', data);
-                toast('users added successfully!!!');
+                toast('Quantity added successfully!!!');
                 event.target.reset();
             })
     }
