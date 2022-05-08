@@ -10,8 +10,8 @@ const Inventory = () => {
             .then(data => setProducts(data))
     }, [])
     return (
-        <div id='products'>
-            <h2 className='text-center m-5'>All Products: {products.length}</h2>
+        <div id='products' className='mb-5'>
+            <h2 className='text-center  m-5'>All Products: {products.length}</h2>
             <div className='row'>
                 {
                     products.map((product) => <Product
@@ -20,6 +20,7 @@ const Inventory = () => {
                         product={product}
                     ></Product>)
                 }
+
             </div>
         </div>
     );
