@@ -9,6 +9,9 @@ import { Link } from 'react-router-dom';
 const ManageInventory = () => {
     //const { inventoryId } = useParams();
     const [products, setProducts] = useInventory();
+    const { name, price, img, description, quantity, supplier } = products;
+
+
     const handleDelete = id => {
         const proceed = window.confirm('Are you Sure?');
         if (proceed) {
@@ -27,8 +30,11 @@ const ManageInventory = () => {
     }
 
     const handleDelivered = id => {
-        console.log(id.quantity);
-        const delivered = products?.quantity - 1;
+
+        console.log(id);
+        console.log(products.quantity);
+        const delivered = parseFloat(products?.quantity) - 1;
+        const newQuantity = { name, price, img, description, quantity: delivered, supplier };
         console.log(products?.quantity);
         const url = `https://rocky-wildwood-46157.herokuapp.com/product/${id}`;
         fetch(url, {
@@ -36,12 +42,11 @@ const ManageInventory = () => {
             headers: {
                 "content-type": "application/json",
             },
-            body: JSON.stringify(delivered),
+            body: JSON.stringify(newQuantity),
         })
             .then((res) => res.json())
             .then((data) => console.log(data));
     }
-
 
     return (
         <div className='container  mx-auto'>

@@ -33,15 +33,17 @@ const ProductUpdate = () => {
             })
     }
 
+
+
     return (
         <div className='text-center container w-50 mx-auto'>
             <h2 className='text-center text-success mt-2'>Updated Quantity of:{inventory.name} </h2>
             <Form className='border pt-2 ' onSubmit={handleUpdateQuantity}>
                 <Form.Group className="mb-3" controlId="formBasicPInventory">
-                    <Form.Control type="text" name="name" value={inventory.name} readOnly placeholder="Product Name" required />
+                    <Form.Control type="text" name="name" value={inventory.name} disabled placeholder="Product Name" required />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Control type="number" name="price" value={inventory.price} readOnly />
+                    <Form.Control type="number" name="price" value={inventory.price} disabled />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Control type="number" name="quantity" placeholder="Enter Restock Quantity" required />
