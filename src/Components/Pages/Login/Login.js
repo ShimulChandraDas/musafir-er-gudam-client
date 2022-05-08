@@ -76,7 +76,7 @@ const Login = () => {
                 </Form.Group>
 
                 {errorElement}
-                <Button variant="primary w-50 mx-auto d-block mb-2" type="submit">
+                <Button variant="info w-100 mx-auto d-block mb-2" type="submit">
                     Login
                 </Button>
                 <p> New to Musafir ? <Link to={'/register'} className='text-danger pe-auto text-decoration-none' onClick={navigateRegister}> Please Register</Link></p>

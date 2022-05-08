@@ -36,8 +36,10 @@ const SocialLogin = () => {
             </div>
             {errorMassage}
             <div>
-                <button onClick={() => signInWithGoogle()} className='btn btn-primary w-50 fs-5 fw-bold d-block mx-auto'><FcGoogle></FcGoogle>   Sign in with Google</button>
-                <button onClick={() => signInWithGithub()} className=' mt-2 btn btn-primary w-50 fs-5 fw-bold d-block mx-auto'><BsGithub></BsGithub>   Sign in with Github</button>
+                <div className='d-flex'>
+                    <button onClick={() => signInWithGoogle()} className='btn btn-success w-10  d-block mx-auto'><FcGoogle></FcGoogle>   Sign in with Google</button>
+                    <button onClick={() => signInWithGithub()} className=' mt-2 btn btn-dark w-10   d-block mx-auto'><BsGithub></BsGithub>   Sign in with Github</button>
+                </div>
             </div>
         </>
     );

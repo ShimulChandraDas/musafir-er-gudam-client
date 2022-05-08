@@ -12,6 +12,7 @@ const UpComing = () => {
 
     return (
         <div className='container text-center mt-5'>
+            <hr />
             <button className='mb-5 btn btn-info btn-lg' onClick={handleSeeMore}>See More <AiOutlineArrowRight /> </button>
 
 
