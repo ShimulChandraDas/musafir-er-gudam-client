@@ -24,7 +24,9 @@ const Blogs = () => {
                     can use separately.
                 </li>
             </p>
+
             <h3><strong>Questions 13.2:</strong> When should you use nodejs and when should you use mongodb .</h3>
+
             <p><strong>Answer: </strong>MongoDB and NodeJS are two different technologies. MonogDB is a
                 database system which gives you a chance to efficiently store documents in
                 a database and to perform operations like data updates, or to search
